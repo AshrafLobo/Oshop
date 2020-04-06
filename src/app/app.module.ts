@@ -19,7 +19,15 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './login/login.component';
+
 import { appRoutes } from './routes';
+
+import { 
+  AuthGuard,
+  AdminAuthGuard,
+  AuthService,
+  UserService
+} from './shared/index';
 
 @NgModule({
   imports: [
@@ -43,7 +51,12 @@ import { appRoutes } from './routes';
     AdminOrdersComponent,
     LoginComponent
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard,
+    AdminAuthGuard,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
